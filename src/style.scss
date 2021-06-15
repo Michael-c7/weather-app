@@ -1,0 +1,12 @@
+* {
+  box-sizing: border-box;
+  padding:0;
+  margin:0;
+}
+
+$my-color:rgb(236, 12, 49);
+
+@font-face {
+  font-family: "myFont";
+  src: url("./Titillium_Web/TitilliumWeb-Regular.ttf");
+}
