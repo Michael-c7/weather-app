@@ -5,9 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <h1>my weather app</h1>
+    <div class="app">
+        <header class="app__header">
+            <div class="current-location">
+                <span class="current-location__city">CHICAGO</span>,
+                <span class="current-location__state">IL</span>
+            </div>
+
+            <div class="search-bar">
+                <input class="search-bar__input" type="text" placeholder="Enter a City" aria-label="search"/>
+                <button class="search-bar__submit" aria-label="submit search">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </header>
+    </div>
 
 
 </body>
