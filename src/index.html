@@ -6,15 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
     <div class="app">
         <header class="app__header">
-            <div class="current-location">
-                <span class="current-location__city">CHICAGO</span>,
-                <span class="current-location__state">IL</span>
-            </div>
-
+            <div class="current-location">CHICAGO, IL</div>
             <div class="search-bar">
                 <input class="search-bar__input" type="text" placeholder="Enter a City" aria-label="search"/>
                 <button class="search-bar__submit" aria-label="submit search">
@@ -22,6 +19,87 @@
                 </button>
             </div>
         </header>
+
+        <section class="app__current-forecast">
+            <div class="current-forecast__summary">
+                <span class="material-icons forecast__summary__icon">wb_sunny</span>
+                <div class="current-details">Overcast</div>
+            </div>
+
+            <div class="current-forecast__info">
+                <div class="current-forecast__temp">-59&#176;</div>
+
+                <div class="current-forecast__details">
+                    <div class="details-wind">
+                        <span class="material-icons wind">air</span>
+                        <div class="data">10mph</div>
+                    </div>
+
+                    <div class="details-humidity">
+                        <span class="material-icons">water_drop</span>
+                        <div class="data">41%</div>
+                    </div>
+
+                    <div class="details-precipitation">
+                        <span class="material-icons">waves</span>
+                        <div class="data">14%</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="app__week-forecast">
+                <ul class="week-forecast__items">
+                    <!--have 7 for the seven days of the week mon-sun-->
+                    <li class="week-forecast__item week-forecast__item--selected">
+                        <span class="material-icons">wb_sunny</span>
+                        <div class="week-forecast__item__temp">-57/-63</div>
+                        <div>Mon</div>
+                    </li>
+
+                    <li class="week-forecast__item">
+                        <span class="material-icons">wb_sunny</span>
+                        <div class="week-forecast__item__temp">-27/-43</div>
+                        <div>Tue</div>
+                    </li>
+
+                    <li class="week-forecast__item">
+                        <span class="material-icons">wb_sunny</span>
+                        <div class="week-forecast__item__temp">-17/-83</div>
+                        <div>Wed</div>
+                    </li>
+
+                    <li class="week-forecast__item">
+                        <span class="material-icons">wb_sunny</span>
+                        <div class="week-forecast__item__temp">-57/-193</div>
+                        <div>Thu</div>
+                    </li>
+
+                    <li class="week-forecast__item">
+                        <span class="material-icons">wb_sunny</span>
+                        <div class="week-forecast__item__temp">-67/-73</div>
+                        <div>Fri</div>
+                    </li>
+
+                    <li class="week-forecast__item">
+                        <span class="material-icons">wb_sunny</span>
+                        <div class="week-forecast__item__temp">-10/-20</div>
+                        <div>Sat</div>
+                    </li>
+
+                    <li class="week-forecast__item">
+                        <span class="material-icons">wb_sunny</span>
+                        <div class="week-forecast__item__temp">-77/-283</div>
+                        <div>Sun</div>
+                    </li>
+                </ul>
+        </section>
+
+        <section class="temp-change">
+            <button class="temp-change__btn temp-change__fahrenheit temp-change__btn--selected">&#176;F</button>
+            <button class="temp-change__btn temp-change__celsius">&#176;C</button>
+        </section>
     </div>
 
 
