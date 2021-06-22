@@ -12,14 +12,13 @@ const forecastPrecipitation = document.querySelector(".data-precipitation");
 
 export const setCurrentWeather = newWeather => {
     currentWeather = newWeather;
-
     render();
 }
 
 const render = _ => {
     const { temp, humidity, wind_speed, dew_point } = currentWeather;
     const { icon, description } = currentWeather.weather[0];
-    console.log(currentWeather)
+    // console.log(currentWeather)
 
     forecastSummaryIcon.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
     forecastSummaryDetails.innerHTML = description;
