@@ -2,3 +2,6 @@
 .vscode
 /weather-app-design
 /apiKeys
+apiKeys
+*geocodingApiKey
+*weatherApiKey
