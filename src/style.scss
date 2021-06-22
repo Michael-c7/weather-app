@@ -1,14 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;700&display=swap');
+
 *,
 ::before,
 ::after {
   box-sizing: border-box;
   padding:0;
   margin:0;
-}
-
-@font-face {
-  font-family: "myFont";
-  src: url("./Titillium_Web/TitilliumWeb-Regular.ttf");
 }
 
 /*my custom properties*/
@@ -25,16 +22,23 @@ ul {
 
 body {
   background:#000;
+  font-family: 'Fira Sans', sans-serif;
 }
 
 .app {
   position: relative;
   background: $gradient-yop;
-  width:80vh;
+  min-width:250px;
+  max-width:900px;
   height: 60vh;
   margin:1rem auto 0 auto;
   border-radius: 2px;
   color:#fff;
+  letter-spacing: 0.15px;
+}
+
+@media(max-width:920px) {
+  .app { max-width:95vw; }
 }
 
 /*app__header*/
@@ -44,7 +48,6 @@ body {
   align-items: center;
   padding:0.5rem 1rem;
 }
-
 
 /*current location*/
 .current-location {
@@ -122,11 +125,11 @@ body {
 
 /*forecast*/
 .app__current-forecast {
-  // background:rgba(0, 0, 0, 0.20);
   text-align:center;
   display:flex;
   justify-content: space-evenly;
   align-items:center;
+  margin-top:1rem;
 }
 
 .forecast__summary__icon {
@@ -162,8 +165,8 @@ body {
   align-items:center;
   margin:0 auto;
   margin-top:4rem;
-  width: 75vw;
   max-width:100%;
+  flex-wrap: wrap;
 }
 
 .week-forecast__item {
@@ -182,7 +185,6 @@ body {
 
 .week-forecast__item--selected {
   border:1px  solid #fff;
-  background:rgba(63, 39, 39, 0.1);
 }
 
 .week-forecast__item__temp {
@@ -195,20 +197,24 @@ body {
   top:97%;
   left:50%;
   transform: translate(-50%, -97%);
+  display: flex;
+  justify-content: space-around;
+  align-items:center;
 }
 
 .temp-change__btn {
   border:none;
   background: transparent;
   color:#fff;
-  font-size:1.15rem;
-  padding:0.15rem;
-  width:30px;
+  font-size:1.25rem;
+  padding:0.25rem;
+  width:35px;
+  height:35px;
   text-align: center;
   cursor: pointer;
   transition:border 300ms ease;
 }
 
 .temp-change__btn--selected {
-  border:2px  solid #fff;
+  border:2px solid #fff;
 }

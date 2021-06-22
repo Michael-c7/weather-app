@@ -10,39 +10,43 @@
 </head>
 <body>
     <div class="app">
+
+        <!--add in a loading animation spinner here-->
+
         <header class="app__header">
             <div class="current-location">CHICAGO, IL</div>
-            <div class="search-bar">
+            <form class="search-bar">
                 <input class="search-bar__input" type="text" placeholder="Enter a City" aria-label="search"/>
                 <button class="search-bar__submit" aria-label="submit search">
                     <i class="fa fa-search"></i>
                 </button>
-            </div>
+            </form>
         </header>
 
         <section class="app__current-forecast">
             <div class="current-forecast__summary">
-                <span class="material-icons forecast__summary__icon">wb_sunny</span>
+                <!-- <span class="material-icons forecast__summary__icon">wb_sunny</span> -->
+                <img src="https://openweathermap.org/img/wn/01d@2x.png" class="forecast__summary__icon"/>
                 <div class="current-details">Overcast</div>
             </div>
 
             <div class="current-forecast__info">
-                <div class="current-forecast__temp">-59&#176;</div>
+                <div class="current-forecast__temp"><span>-59</span>&#176;</div>
 
                 <div class="current-forecast__details">
                     <div class="details-wind">
                         <span class="material-icons wind">air</span>
-                        <div class="data">10mph</div>
+                        <div class="data data-wind">10mph</div>
                     </div>
 
                     <div class="details-humidity">
                         <span class="material-icons">water_drop</span>
-                        <div class="data">41%</div>
+                        <div class="data data-humidity">41%</div>
                     </div>
 
                     <div class="details-precipitation">
                         <span class="material-icons">waves</span>
-                        <div class="data">14%</div>
+                        <div class="data data-precipitation">14%</div>
                     </div>
                 </div>
             </div>
@@ -104,4 +108,6 @@
 
 
 </body>
+
+<script src="../src/index.js"></script>
 </html>
