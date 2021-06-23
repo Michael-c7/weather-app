@@ -3,5 +3,5 @@ service im using for geocoding
 https://positionstack.com/documentation
 */
 
-const geocodingApiKey = "d5c6383b383544d32a873a639d5e5e39";
+const geocodingApiKey = "293ee9a8f6a993fe975398ce4988dadc";
 export default geocodingApiKey;

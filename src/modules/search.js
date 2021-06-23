@@ -1,7 +1,7 @@
 import geocodingApiKey from "../apiKeys/geocodingApiKey";
 import weatherApiKey from "../apiKeys/weatherApiKey";
 import { setCurrentWeather } from "./current";
-import { setMultiWeather } from "./multi";
+import { multidayForecast } from "./multi";
 // Lat = Y Long = X
 
 let address = "Salt Lake, UT"
@@ -13,8 +13,8 @@ const searchBarEl = document.querySelector(".search-bar__submit");
 const loadingSection = document.querySelector(".loading-section");
 const weekForecastItems = document.querySelector(".week-forecast__items");
 
+
 export const initSearch = _ => {
-    // console.log("hello, more text")
     bindSearchEvents()
     updateWeather(address)
     render()
@@ -44,8 +44,6 @@ const updateWeather = async query => {
 
     const daysOfTheWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
-    console.log(daily)
-
 
     let weatherMulti = daily.slice(0, daily.length - 1).map(((item, index) => {
          let {min, max} = item.temp;
@@ -55,10 +53,10 @@ const updateWeather = async query => {
     }));
 
     let myMarkup = "";
-    weatherMulti.forEach((item,index) => {
+    weatherMulti.forEach((item, index) => {
         const {min,max,weatherIcon,currentDayText} = item;
         let markup = `
-        <li class="week-forecast__item">
+        <li class="week-forecast__item" data-weatherDayIndex=${index}>
             <img class="forecast__item__icon" src="https://openweathermap.org/img/wn/${weatherIcon}@2x.png" alt="weather icon"/>
             <div class="week-forecast__item__temp">${Math.floor(min)}/${Math.floor(max)}</div>
             <div>${currentDayText}</div>
@@ -71,17 +69,16 @@ const updateWeather = async query => {
 
 
 
-
-    /*get more specific weather info when you click on a forecast*/
-
-
-
-    // change units
-
-
-    // change langauge
+    // multidayForecast()
 
 }
+
+
+
+export let testThing = _ => {
+    return "says hello"
+}
+
 
 
 
@@ -111,4 +108,5 @@ export let getWeatherData = async (lat, lon) => {
 
 const render = _ => {
     currentLocationEl.innerHTML = address;
+    
 }
