@@ -1,7 +1,7 @@
 import geocodingApiKey from "../../apiKeys/geocodingApiKey";
 import weatherApiKey from "../../apiKeys/weatherApiKey";
 import { setCurrentWeather } from "./current";
-// import { multidayForecast } from "./multi";
+import { multidayForecast } from "./multi";
 // Lat = Y Long = X
 
 let address = "Salt Lake, UT"
@@ -12,13 +12,7 @@ const searchInputEl = document.querySelector(".search-bar__input");
 const searchBarEl = document.querySelector(".search-bar__submit");
 const loadingSection = document.querySelector(".loading-section");
 const weekForecastItems = document.querySelector(".week-forecast__items");
-// cache the DOM
-const forecastSummaryIcon = document.querySelector(".forecast__summary__icon");
-const forecastSummaryDetails = document.querySelector(".current-details");
-const forecastTemp = document.querySelector(".current-forecast__temp span");
-const forecastWind = document.querySelector(".data-wind");
-const forecastHumidity = document.querySelector(".data-humidity");
-const forecastPrecipitation = document.querySelector(".data-precipitation");
+
 
 
 export const initSearch = _ => {
@@ -43,6 +37,7 @@ const bindSearchEvents = _ => {
 
 
 const updateWeather = async query => {
+    // set the loading screen & get the weather data thats needed
     loadingSection.classList.toggle("loading-section--active");
     const {lat, lon} = await getLatLong(address)
     const {current, daily} = await getWeatherData(lat, lon);
@@ -51,7 +46,7 @@ const updateWeather = async query => {
 
     const daysOfTheWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
-
+    // get & prepare the data for the multi weather day forecast
     let weatherMulti = daily.slice(0, daily.length - 1).map(((item, index) => {
          let {min, max} = item.temp;
          let weatherIcon = item.weather[0].icon;
@@ -59,6 +54,7 @@ const updateWeather = async query => {
         return {min,max,weatherIcon,currentDayText};
     }));
 
+    // set the markup for the muti weather day forecast
     let myMarkup = "";
     weatherMulti.forEach((item, index) => {
         const {min,max,weatherIcon,currentDayText} = item;
@@ -71,50 +67,15 @@ const updateWeather = async query => {
         `
         myMarkup += markup;
     });
-
     weekForecastItems.innerHTML = myMarkup;
 
+    let selectFirstWeeklyForecast = _ =>
+    weekForecastItems.children[0].classList.add("week-forecast__item--selected")
+    selectFirstWeeklyForecast()
 
-
-    /*get more specific weather info when you click on a forecast*/
-    weekForecastItems.addEventListener("click", event => {
-        let closestLi = event.target.closest("li");
-        let weatherDayIndex = closestLi.getAttribute("data-weatherDayIndex");
-        let currentDayWeatherData = daily[weatherDayIndex];
-        // weather data
-        let { wind_speed, humidity, dew_point } = currentDayWeatherData;
-        let { day:temp } = currentDayWeatherData.temp;
-        let { icon, description } = currentDayWeatherData.weather[0];
-
-
-        let render = _ => {
-            forecastSummaryIcon.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
-            forecastSummaryDetails.innerHTML = description;
-            forecastTemp.innerHTML = Math.round(temp);
-            forecastWind.innerHTML = wind_speed + "mph";
-            forecastHumidity.innerHTML = humidity + "%";
-            forecastPrecipitation.innerHTML = Math.round(dew_point) + "DP";
-        }
-
-        let selectCurrentWeeklyForecast = _ => {
-        // remove selected class from every item
-        Array.from(document.querySelector(".week-forecast__items").children)
-        .forEach(item => item.classList.remove("week-forecast__item--selected"));
-        // add selected class to the item you selected
-        closestLi.classList.add("week-forecast__item--selected");
-        }
-
-
-        render()
-        selectCurrentWeeklyForecast()
-    });
-
-}
-
-
-
-export let testThing = _ => {
-    return "says hello"
+    /*get more specific weather info
+    when you click on a forecast*/
+    multidayForecast(daily)
 }
 
 
@@ -135,7 +96,7 @@ let getLatLong = async (query) => {
 
 
 export let getWeatherData = async (lat, lon) => {
-     let  endpoint = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=alerts,hourly,minutely&appid=${weatherApiKey}`;
+     let  endpoint = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=alerts,hourly,minutely&appid=${weatherApiKey}&units=imperial`;
      let request = await fetch(endpoint);
      let data = await request.json();
      return data;

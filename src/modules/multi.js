@@ -5,13 +5,14 @@ const forecastTemp = document.querySelector(".current-forecast__temp span");
 const forecastWind = document.querySelector(".data-wind");
 const forecastHumidity = document.querySelector(".data-humidity");
 const forecastPrecipitation = document.querySelector(".data-precipitation");
+const weekForecastItems = document.querySelector(".week-forecast__items");
 
-export let multidayForecast = _ => {
+export let multidayForecast = dailyWeather => {
     /*get more specific weather info when you click on a forecast*/
     weekForecastItems.addEventListener("click", event => {
         let closestLi = event.target.closest("li");
         let weatherDayIndex = closestLi.getAttribute("data-weatherDayIndex");
-        let currentDayWeatherData = daily[weatherDayIndex];
+        let currentDayWeatherData = dailyWeather[weatherDayIndex];
         // weather data
         let { wind_speed, humidity, dew_point } = currentDayWeatherData;
         let { day:temp } = currentDayWeatherData.temp;

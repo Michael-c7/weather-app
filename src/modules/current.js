@@ -27,12 +27,4 @@ const render = _ => {
     forecastWind.innerHTML = wind_speed + "mph";
     forecastHumidity.innerHTML = humidity + "%";
     forecastPrecipitation.innerHTML = Math.round(dew_point) + "DP";
-
-    /*
-    icons from the weather api
-    https://openweathermap.org/img/wn/${iconCodeHere}@2x.png
-
-    EG:
-    https://openweathermap.org/img/wn/01d@2x.png
-    */
 }

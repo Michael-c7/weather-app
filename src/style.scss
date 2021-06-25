@@ -299,3 +299,21 @@ body {
 .temp-change__btn--selected {
   border:2px solid #fff;
 }
+
+
+.additional-features {
+  margin-top:2rem;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+}
+
+
+.additional-features__lang {
+  display:Flex;
+  flex-direction: column;
+}
+
+.lang__text {
+  margin-bottom:0.25rem;
+}
