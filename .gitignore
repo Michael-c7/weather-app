@@ -1,9 +1,3 @@
 *node_modules
 .vscode
-/weather-app-design
 /apiKeys
-/src/apiKeys
-/src/apiKeys/geocodingApiKey.js
-/src/apiKeys/weatherApiKey.js
-.geocodingApiKey.js
-.weatherApiKey.js
