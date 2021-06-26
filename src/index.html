@@ -60,7 +60,7 @@
 
         <section class="app__week-forecast">
                 <ul class="week-forecast__items">
-                    <!-- <li class="week-forecast__item week-forecast__item--selected">
+                    <li class="week-forecast__item week-forecast__item--selected">
                         <img class="forecast__item__icon" src="https://openweathermap.org/img/wn/01d@2x.png" alt="weather icon"/>
                         <div class="week-forecast__item__temp">-57/-63</div>
                         <div>Mon</div>
@@ -100,25 +100,27 @@
                         <img class="forecast__item__icon" src="https://openweathermap.org/img/wn/01d@2x.png" alt="weather icon"/>
                         <div class="week-forecast__item__temp">-57/-63</div>
                         <div>Sun</div>
-                    </li> -->
+                    </li>
                 </ul>
         </section>
 
 
-        <!-- <section class="additional-features">
+        <section class="additional-features">
+            <div class="temp-change">
+                <button class="temp-change__btn temp-change__btn--selected" data-temp="metric">&#176;C</button>
+                <button class="temp-change__btn" data-temp="imperial">&#176;F</button>
+                <button class="temp-change__btn" data-temp="standard">&#176;K</button>
+            </div>
+
+
             <form class="additional-features__lang">
-                <label class="lang__text" for="languages">Choose a display language</label>
                 <select class="lang-options" name="languages" id="languages">
                     <option value="en">English</option>
                     <option value="zh_cn">Chinese Simplified</option>
                 </select>
             </form>
-        </section> -->
+        </section>
 
-        <!-- <section class="temp-change">
-            <button class="temp-change__btn temp-change__fahrenheit temp-change__btn--selected">&#176;F</button>
-            <button class="temp-change__btn temp-change__celsius">&#176;C</button>
-        </section> -->
     </div>
 
 

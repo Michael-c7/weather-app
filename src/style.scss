@@ -30,9 +30,10 @@ body {
   background: $gradient-yop;
   min-width:250px;
   max-width:900px;
-  height: 60vh;
+  height: auto;
   margin:1rem auto 0 auto;
-  border-radius: 2px;
+  padding:1rem 0;
+  border-radius: 3px;
   color:#fff;
   letter-spacing: 0.15px;
 }
@@ -60,6 +61,7 @@ body {
   text-align: center;
   display: none;
   z-index:-100;
+  top:0;
 }
 
 .loading-section--active {
@@ -273,14 +275,28 @@ body {
 }
 
 
-.temp-change {
-  position: absolute;
-  top:97%;
-  left:50%;
-  transform: translate(-50%, -97%);
-  display: flex;
-  justify-content: space-around;
+
+
+/*additonal features*/
+.additional-features {
+  position: relative;
+  margin:2rem 1.5rem 0  1.5rem;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
   align-items:center;
+}
+
+
+.temp-change {
+  --paddingValue:0.25rem;
+  --widthHeightValue:35px;
+  --amtOfBtns:3;
+
+  width:calc((var(--widthHeightValue) * var(--amtOfBtns)) + (var(--paddingValue) * var(--amtOfBtns)));
+  grid-column:2/3;
+  justify-self: center;
+  align-self: center;
 }
 
 .temp-change__btn {
@@ -301,19 +317,7 @@ body {
 }
 
 
-.additional-features {
-  margin-top:2rem;
-  display:flex;
-  justify-content: center;
-  align-items:center;
-}
-
-
 .additional-features__lang {
-  display:Flex;
-  flex-direction: column;
-}
-
-.lang__text {
-  margin-bottom:0.25rem;
+  grid-column:3/3;
+  justify-self: end;
 }

@@ -10,22 +10,13 @@ initSearch()
 
 
 
+
 /*TODO list of features to add
-    - tooltip on hover for what the wind speed, humidity, dew point are
-        EG: The dew point is the temperature to which
-            air must be cooled to become saturated with water vapor.
-            When cooled further, the airborne water vapor
-            will condense to form liquid water (dew).
-            When air cools to its dew point through contact
-            with a surface that is colder than the air,
-            water will condense on the surface
-
-
     - get change unit module working
       - can change between imperial(default) or metric
-
-    - create a change langauge dropdown
-      - google translate or some langauge api
+      - will have to set the city that they choose to local storage
+      - and when you make a request
+      (specificly w/ unit or lang get that city from local storage)
 
 
     - error handling for when someone types in nonsense into the search bar
@@ -34,4 +25,6 @@ initSearch()
           top of the screen saying your search was invalid
           goes away after 10 seconds automatically or can close out w/ X btn)
 
+    - create a change langauge dropdown
+      - google translate or some langauge api
 */

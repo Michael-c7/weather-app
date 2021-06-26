@@ -2,10 +2,11 @@ import geocodingApiKey from "../../apiKeys/geocodingApiKey";
 import weatherApiKey from "../../apiKeys/weatherApiKey";
 import { setCurrentWeather } from "./current";
 import { multidayForecast } from "./multi";
+import { getTemp } from "./tempUnit";
+
 // Lat = Y Long = X
 
 let address = "Salt Lake, UT"
-
 let currentLocationEl = document.querySelector(".current-location");
 const searchBar = document.querySelector(".search-bar");
 const searchInputEl = document.querySelector(".search-bar__input");
@@ -95,8 +96,8 @@ let getLatLong = async (query) => {
 
 
 
-export let getWeatherData = async (lat, lon) => {
-     let  endpoint = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=alerts,hourly,minutely&appid=${weatherApiKey}&units=imperial`;
+export let getWeatherData = async (lat, lon, tempUnit) => {
+     let  endpoint = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=alerts,hourly,minutely&appid=${weatherApiKey}&units=${tempUnit}`;
      let request = await fetch(endpoint);
      let data = await request.json();
      return data;
