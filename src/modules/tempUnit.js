@@ -11,6 +11,8 @@ wind speed in meter/sec === standard
 source : https://openweathermap.org/api/one-call-api#data
 */
 
+/*COULD ALSO JUST WRITE SOME FUNCTION THAT CONVERT THE DATA LOCALLY */
+
 
 // imports
 import {getWeatherData, getLatLong } from "./search";

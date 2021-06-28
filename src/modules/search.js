@@ -6,13 +6,15 @@ import { getTemp } from "./tempUnit";
 
 // Lat = Y Long = X
 
-let address = "Salt Lake, UT"
+let address = "Salt Lake, UT";
+
 let currentLocationEl = document.querySelector(".current-location");
 const searchBar = document.querySelector(".search-bar");
 const searchInputEl = document.querySelector(".search-bar__input");
 const searchBarEl = document.querySelector(".search-bar__submit");
 const loadingSection = document.querySelector(".loading-section");
 const weekForecastItems = document.querySelector(".week-forecast__items");
+let errorPopup = document.querySelector(".error-popup");
 
 
 
@@ -88,9 +90,17 @@ let getLatLong = async (query) => {
     from the address the user inputs eg: Salt lake city,UT
     */
     let endPoint = `http://api.positionstack.com/v1/forward?access_key=${geocodingApiKey}&query=${query}`;
-    let request = await fetch(endPoint);
-    let data = await request.json();
-    return {lat: data.data[0].latitude, lon: data.data[0].longitude};
+    try {
+        let request = await fetch(endPoint);
+        let data = await request.json();
+        return {lat: data.data[0].latitude, lon: data.data[0].longitude};
+    }catch(err) {
+        console.log(err);
+        loadingSection.classList.toggle("loading-section--active");
+        errorPopup.classList.add("error-popup--active")
+        setTimeout(_ => errorPopup.classList.remove("error-popup--active"), 5000);
+        return;
+    }
 }
 
 

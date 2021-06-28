@@ -317,7 +317,59 @@ body {
 }
 
 
-.additional-features__lang {
-  grid-column:3/3;
-  justify-self: end;
+
+
+
+
+
+
+
+
+
+/*error popup*/
+.error-popup {
+  position: absolute;
+  background-color:#fff;
+  color:#000;
+  width:95%;
+  padding:1rem 0.5rem;
+  top:95%;
+  left:50%;
+  transform: translate(-50%, -95%);
+  z-index: -999;
+  opacity:0;
+  display:none;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap:wrap;
+  box-shadow: 1px 5px 10px rgba(34, 34, 34, 0.25);
+  border-radius: 3px;
+
+  transition: opacity 0.5s ease;
+}
+
+.error-popup--active {
+  z-index: 999;
+  opacity:1;
+  display:flex;
+}
+
+
+.error-popup__close-btn {
+  border:none;
+  background:rgb(236, 36, 36);
+  color:#fff;
+  width:25px;
+  height:25px;
+  border-radius: 2px;
+  font-size:1.5rem;
+}
+
+.error-popup__close-btn:hover {
+  background:rgb(255, 41, 41);
+  cursor: pointer;
+}
+
+.error-popup__close-btn:active {
+  background:rgb(236, 36, 36);
 }

@@ -10,6 +10,12 @@
 </head>
 <body>
     <div class="app">
+
+        <div class="error-popup error-popup--active">
+            <div class="error-popup__msg">Invalid address, please enter a city or a state (Eg: Florida)</div>
+            <button class="error-popup__close-btn">&times;</button>
+        </div>
+
         <!--loading-section--active-->
         <section class="loading-section">
             <div class="loading-section__content">
@@ -111,14 +117,6 @@
                 <button class="temp-change__btn" data-temp="imperial">&#176;F</button>
                 <button class="temp-change__btn" data-temp="standard">&#176;K</button>
             </div>
-
-
-            <form class="additional-features__lang">
-                <select class="lang-options" name="languages" id="languages">
-                    <option value="en">English</option>
-                    <option value="zh_cn">Chinese Simplified</option>
-                </select>
-            </form>
         </section>
 
     </div>
