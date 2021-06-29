@@ -23,7 +23,9 @@ Type any american state or city into the search bar.
   2. the projected low and high temperatures for the day Eg: 13/25
   3. An abbreviation of the day Eg: Mon (meaning monday)
   
-  
+  ## Apis used
+  - get the x & y location from a city or state w/ https://positionstack.com
+  - get the weather w/ https://openweathermap.org
   
   ## Tools used
   1.html
