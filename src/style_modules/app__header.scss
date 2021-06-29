@@ -1,0 +1,13 @@
+/*app__header*/
+.app__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0.5rem 1rem;
+  }
+  
+  /*current location*/
+  .current-location {
+    color:#fff;
+    text-transform: uppercase;
+  }

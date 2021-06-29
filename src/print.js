@@ -1,3 +1,1 @@
-export default function printMe() {
-  console.log('I get called from print.js! 1234567');
-  }
+/*I have no idea why this file exists but webpack wont run wihout it*/

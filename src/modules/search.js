@@ -2,11 +2,10 @@ import geocodingApiKey from "../../apiKeys/geocodingApiKey";
 import weatherApiKey from "../../apiKeys/weatherApiKey";
 import { setCurrentWeather } from "./current";
 import { multidayForecast } from "./multi";
-import { getTemp } from "./tempUnit";
 
 // Lat = Y Long = X
 
-let address = "Salt Lake, UT";
+let address = "Salt Lake City, Utah";
 
 let currentLocationEl = document.querySelector(".current-location");
 const searchBar = document.querySelector(".search-bar");
@@ -14,7 +13,8 @@ const searchInputEl = document.querySelector(".search-bar__input");
 const searchBarEl = document.querySelector(".search-bar__submit");
 const loadingSection = document.querySelector(".loading-section");
 const weekForecastItems = document.querySelector(".week-forecast__items");
-let errorPopup = document.querySelector(".error-popup");
+const errorPopup = document.querySelector(".error-popup");
+const errorCloseBtn = document.querySelector(".error-popup__close-btn");
 
 
 
@@ -106,8 +106,8 @@ let getLatLong = async (query) => {
 
 
 
-export let getWeatherData = async (lat, lon, tempUnit) => {
-     let  endpoint = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=alerts,hourly,minutely&appid=${weatherApiKey}&units=${tempUnit}`;
+export let getWeatherData = async (lat, lon) => {
+     let  endpoint = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=alerts,hourly,minutely&appid=${weatherApiKey}&units=metric`;
      let request = await fetch(endpoint);
      let data = await request.json();
      return data;
@@ -115,7 +115,16 @@ export let getWeatherData = async (lat, lon, tempUnit) => {
 
 
 
-
 const render = _ => {
     currentLocationEl.innerHTML = address;
 }
+
+
+// error button functionality
+let errorBtnFunctionality = _ => {
+    const closeErrorPopup = event =>
+    errorPopup.classList.remove("error-popup--active")
+errorCloseBtn.addEventListener("click", closeErrorPopup);
+}
+
+errorBtnFunctionality()

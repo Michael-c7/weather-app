@@ -1,0 +1,31 @@
+.app__current-forecast {
+    text-align:center;
+    display:flex;
+    justify-content: space-evenly;
+    align-items:center;
+    margin-top:1rem;
+  }
+  
+  .forecast__summary__icon {
+    font-size:4rem;
+    margin-bottom:2rem;
+  }
+  
+  .current-details {
+    font-size:1.25rem;
+  }
+  
+  
+  .current-forecast__temp {
+    font-size: 4em;
+    margin-bottom:1rem;
+  }
+  
+  .current-forecast__details {
+    display:flex;
+    align-items:center;
+  }
+  
+  .current-forecast__details > * {
+    margin:0 1rem;
+  }
